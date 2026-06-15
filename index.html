@@ -124,11 +124,17 @@
                 </section>
 
                 <section class="content-section" id="papers">
-                    
-                    <li>
-
                     <h2 class="section-title">Papers</h2>
                     <ul class="papers-list">
+                        <li>
+                            <div class="paper-item">
+                                <div class="paper-title">
+                                    Multi-center Kidney Hydronephrosis Segmentation Using Deep Learning Ensemble and Synthetic Ultrasound Augmentation
+                                    <span class="paper-status">Under Review</span>
+                                </div>
+                                <div class="paper-authors">Keunwoo Park<sup>1</sup>, Hyojin Ko<sup>1</sup>, Jihoon Kweon<sup>1*</sup>, Sang Hoon Song<sup>2*</sup></div>
+                            </div>
+                        </li>
                         <li>
                             <div class="paper-item">
                                 <div class="paper-title">
@@ -255,187 +261,165 @@
                     </h2>
 
                     <div class="portfolio-featured">
-                        <div class="project-item" style="margin-bottom: 0;">
+                        <article class="project-card project-card--featured">
+                            <span class="project-badge">Featured</span>
                             <h3 class="project-title">Uncertainty-Aware Meta-Learning for Robust Stent Segmentation via Selective Ensemble</h3>
-                            <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center &middot; 2025 – Present</div>
+                            <div class="project-meta-row">
+                                <span class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</span>
+                                <span class="project-period">2025 – Present</span>
+                            </div>
                             <div class="project-meta">
                                 <span class="project-tag">Deep Learning</span>
-                                <span class="project-tag">Medical Image Segmentation</span>
+                                <span class="project-tag">Segmentation</span>
                                 <span class="project-tag">Selective Ensemble</span>
                                 <span class="project-tag">Meta-Learning</span>
                                 <span class="project-tag">CinC 2026</span>
                             </div>
-                            <div class="project-role">Lead Researcher — Stent Registration &amp; Segmentation Pipeline</div>
-                            <div class="project-description">
-                                <p>
-                                    A deep learning pipeline for robust stent and catheter segmentation in invasive coronary angiography, developed to support post-PCI quantitative coronary analysis (QCA) and stent-vessel registration across fluoroscopy and angiography modalities.
-                                </p>
-                                <p><strong>Problem.</strong> Single segmentation models trained with different loss functions produce heterogeneous predictions with distinct failure modes—disconnected vessels, spurious branches, and boundary inaccuracies—making naive ensembling unreliable for clinical deployment.</p>
-                                <p><strong>Approach.</strong></p>
-                                <ul>
-                                    <li>Trained five baseline models (U-Net, DenseNet-121) with morphology-focused loss functions: Dice, Centerline, Hausdorff, Edge Distance, and Topology losses</li>
-                                    <li>Developed rank-based selective ensemble methods — MSEN (Morphology-based Selective Ensemble) and ESEN (Estimated DSC-based Selective Ensemble) — that weight predictions by mask quality rather than averaging uniformly</li>
-                                    <li>Built an attention-based meta-learner that incorporates inter-model disagreement as an uncertainty map to guide robust mask fusion</li>
-                                    <li>Evaluated on five-fold cross-validation with 942 internal and 358 external angiographic projections from PCI patients</li>
-                                </ul>
-                                <p><strong>Key Results.</strong> The selective ensemble improved segmentation performance by up to 5.04% over the weakest baseline model on challenging folds, with an average improvement of up to 3.68%. The framework integrates with an end-to-end stent-vessel mapping pipeline using ICP-based catheter tip alignment and auxiliary centerline mapping.</p>
-                                <p>
-                                    <strong>Publication:</strong>
-                                    <a href="https://cinc2026.org/" target="_blank" rel="noopener noreferrer">Uncertainty-Aware Meta-Learning for Robust Stent Segmentation via Selective Ensemble</a> — Computing in Cardiology (CinC) 2026
-                                </p>
+                            <p class="project-role">Lead Researcher — Stent Registration &amp; Segmentation Pipeline</p>
+                            <p class="project-summary">
+                                Deep learning pipeline for stent and catheter segmentation in invasive coronary angiography, supporting post-PCI QCA and stent-vessel registration across fluoroscopy and angiography.
+                            </p>
+                            <div class="project-highlights">
+                                <div class="project-highlight">
+                                    <h4>Problem</h4>
+                                    <p>Single models with different loss functions show distinct failure modes—disconnected vessels, spurious branches, boundary errors—making naive ensembling unreliable.</p>
+                                </div>
+                                <div class="project-highlight">
+                                    <h4>Approach</h4>
+                                    <ul>
+                                        <li>Five U-Net / DenseNet-121 baselines with morphology-focused losses</li>
+                                        <li>MSEN &amp; ESEN rank-based selective ensemble</li>
+                                        <li>Attention meta-learner with uncertainty maps</li>
+                                    </ul>
+                                </div>
+                                <div class="project-highlight">
+                                    <h4>Results</h4>
+                                    <p>Up to 5.04% improvement over weakest baseline (avg. 3.68%). Evaluated on 942 internal + 358 external PCI projections with five-fold CV.</p>
+                                </div>
                             </div>
+                            <div class="project-publication">
+                                <strong>Publication:</strong>
+                                <a href="https://cinc2026.org/" target="_blank" rel="noopener noreferrer">Uncertainty-Aware Meta-Learning for Robust Stent Segmentation via Selective Ensemble</a>
+                                — Computing in Cardiology (CinC) 2026
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="project-subsection">
+                        <h3 class="project-subsection-title">Current Research</h3>
+                        <p class="project-subsection-desc">Asan Institute of Life Sciences / Asan Medical Center</p>
+                        <div class="project-grid">
+                            <article class="project-card">
+                                <h3 class="project-title">Automated Medical Report Generation</h3>
+                                <div class="project-meta">
+                                    <span class="project-tag">MLLM</span>
+                                    <span class="project-tag">RAG</span>
+                                    <span class="project-tag">LangGraph</span>
+                                    <span class="project-tag">CDSS</span>
+                                </div>
+                                <div class="project-description">
+                                    <p>End-to-end CDSS pipeline generating structured reports from coronary angiography. LoRA fine-tuning, RAG with vector DBs, and LangGraph multi-agent system with multi-frame input.</p>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <h3 class="project-title">IVUS Vessel Tracking</h3>
+                                <div class="project-meta">
+                                    <span class="project-tag">IVUS</span>
+                                    <span class="project-tag">Vessel Tracking</span>
+                                </div>
+                                <div class="project-description">
+                                    <p>Automated vessel tracking for intravascular ultrasound, building on deep learning IVUS segmentation with noisy labels.</p>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <h3 class="project-title">Centerline Extraction</h3>
+                                <div class="project-meta">
+                                    <span class="project-tag">Centerline</span>
+                                    <span class="project-tag">Morphology</span>
+                                </div>
+                                <div class="project-description">
+                                    <p>Geometric centerline extraction from vascular masks via slope segmentation and perpendicular normal refinement for QCA analysis.</p>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <h3 class="project-title">Hydronephrosis Segmentation</h3>
+                                <div class="project-meta">
+                                    <span class="project-tag">Segmentation</span>
+                                    <span class="project-tag">Ultrasound</span>
+                                </div>
+                                <div class="project-description">
+                                    <p>Deep learning-based hydronephrosis segmentation from ultrasound images with literature review and clinical validation planning.</p>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <h3 class="project-title">IMR Reporting for Tinnitus</h3>
+                                <div class="project-meta">
+                                    <span class="project-tag">Medical Reporting</span>
+                                    <span class="project-tag">NLP</span>
+                                </div>
+                                <div class="project-description">
+                                    <p>Structured IMR report generation with department-specific templates and patent drafting for automated reporting workflows.</p>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <h3 class="project-title">VR in Medicine</h3>
+                                <div class="project-meta">
+                                    <span class="project-tag">VR</span>
+                                    <span class="project-tag">Cardiology</span>
+                                    <span class="project-tag">Orthopedics</span>
+                                </div>
+                                <div class="project-description">
+                                    <p>Survey of VR applications in cardiology and orthopedics for immersive medical visualization.</p>
+                                </div>
+                            </article>
+                            <article class="project-card">
+                                <h3 class="project-title">Operating Room Automation</h3>
+                                <div class="project-meta">
+                                    <span class="project-tag">Automation</span>
+                                    <span class="project-tag">Data Pipeline</span>
+                                </div>
+                                <div class="project-description">
+                                    <p>Clinical data collection and preprocessing pipelines for AI-driven surgical workflow support.</p>
+                                </div>
+                            </article>
                         </div>
                     </div>
 
-                    <h3 class="project-subsection-title">Current Research</h3>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Automated Medical Report Generation</h3>
-                        <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</div>
-                        <div class="project-meta">
-                            <span class="project-tag">MLLM</span>
-                            <span class="project-tag">RAG</span>
-                            <span class="project-tag">LangGraph</span>
-                            <span class="project-tag">CDSS</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                                An end-to-end clinical decision support pipeline that generates structured medical reports from coronary angiography images. Built data preprocessing and metadata pipelines, fine-tuned vision-language models with LoRA and DeepSpeed, and integrated RAG with vector databases for context-aware report generation. Developed a LangGraph-based multi-agent system with multi-frame input, vessel-view classification, and federated learning components.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">IVUS Vessel Tracking</h3>
-                        <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</div>
-                        <div class="project-meta">
-                            <span class="project-tag">IVUS</span>
-                            <span class="project-tag">Vessel Tracking</span>
-                            <span class="project-tag">Image Analysis</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                                Research on intravascular ultrasound (IVUS) vessel tracking and analysis, building on prior work in deep learning for IVUS segmentation with noisy labels. Explores automated vessel tracking methods to support intracoronary image interpretation.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Centerline Extraction for Vascular Masks</h3>
-                        <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</div>
-                        <div class="project-meta">
-                            <span class="project-tag">Centerline</span>
-                            <span class="project-tag">Morphology</span>
-                            <span class="project-tag">Segmentation</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                                Developed geometric algorithms for robust centerline extraction from vascular segmentation masks. The method segments masks by average slope, draws perpendicular normals at 3-pixel intervals, and iteratively refines centerline points to avoid edge bias—supporting accurate vessel entrance/exit detection for downstream QCA analysis.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Hydronephrosis Segmentation</h3>
-                        <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</div>
-                        <div class="project-meta">
-                            <span class="project-tag">Segmentation</span>
-                            <span class="project-tag">Ultrasound</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                                Collaborative research on deep learning-based hydronephrosis segmentation from ultrasound images, including literature review, model development, and clinical validation planning.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">IMR Reporting for Tinnitus</h3>
-                        <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</div>
-                        <div class="project-meta">
-                            <span class="project-tag">Medical Reporting</span>
-                            <span class="project-tag">NLP</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                                Structured medical report generation and reorganization for tinnitus-related imaging reports (IMR), including department-specific report templates and patent drafting for automated reporting workflows.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">VR Applications in Medicine</h3>
-                        <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</div>
-                        <div class="project-meta">
-                            <span class="project-tag">VR</span>
-                            <span class="project-tag">Cardiology</span>
-                            <span class="project-tag">Orthopedics</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                                Exploratory research on virtual reality applications in cardiology and orthopedics, surveying clinical use cases and technical requirements for immersive medical visualization.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Operating Room Automation</h3>
-                        <div class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</div>
-                        <div class="project-meta">
-                            <span class="project-tag">Automation</span>
-                            <span class="project-tag">Data Inspection</span>
-                        </div>
-                        <div class="project-description">
-                            <p>
-                                Data inspection and pipeline development for operating room automation, focusing on structured clinical data collection and preprocessing for AI-driven surgical workflow support.
-                            </p>
-                        </div>
-                    </div>
-
-                    <h3 class="project-subsection-title">Funded Research</h3>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Deep Learning-based Clinical Decision Support System for Postoperative Abdominal Surgery Patient Nursing Surveillance using EMR Data</h3>
-                        <div class="project-organization">Ministry of Science and ICT (MSIT)</div>
-                        <div class="project-description">
-                            <p>
-                                Analyzed and predicted patient health record data composed of images and text using explainable AI to support nursing surveillance systems. Researched feature extraction and multimodal fusion methods, and continuous learning for real-time patient monitoring. Published "XAI-based Clinical Decision Support System: A Systematic Review" in Applied Sciences.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">No-Code AI-based Personalized Healthcare Service Framework</h3>
-                        <div class="project-organization">Gachon University Pump-Prime Project</div>
-                        <div class="project-description">
-                            <p>
-                                Proposed a no-code AI framework enabling users without programming knowledge to access personalized healthcare analytics. Developed a Code-BERT-based code generation agent that translates natural language queries into SQL and analysis pipelines. Presented at KDBC 2023.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Research on Auto-Expanding Knowledge Graph-based Conversational AI Framework</h3>
-                        <div class="project-organization">National Research Foundation of Korea (NRF)</div>
-                        <div class="project-description">
-                            <p>
-                                Extracted core concepts from user utterances via NLP and generated responses using auto-expanding knowledge graphs (PolarisX). Designed the initial system architecture and published "Trends in Empathetic AI Agent Technology for Mental Health" in the Journal of KIISE.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Research on Advanced Conversational AI Platform based on Continuous Learning</h3>
-                        <div class="project-organization">National Research Foundation of Korea (NRF)</div>
-                    </div>
-
-                    <div class="project-item">
-                        <h3 class="project-title">Research on Personalized AI Platform based on Federated Continuous Learning</h3>
-                        <div class="project-organization">Gachon University GL Joint Research Infrastructure Project</div>
-                        <div class="project-description">
-                            <p>
-                                Foundational research on personalized AI services, federated learning, continuous learning, knowledge graphs, VQA, and multimodal data processing. Proposed federated continuous learning for secure end-device knowledge sharing, leading to subsequent NRF-funded projects on conversational AI platforms.
-                            </p>
+                    <div class="project-subsection">
+                        <h3 class="project-subsection-title">Funded Research</h3>
+                        <div class="project-funded-list">
+                            <article class="project-funded-item">
+                                <h3 class="project-title">Deep Learning-based CDSS for Postoperative Nursing Surveillance using EMR Data</h3>
+                                <div class="project-organization">MSIT</div>
+                                <div class="project-description">
+                                    <p>Multimodal EMR analysis with explainable AI for nursing surveillance. Published systematic review in Applied Sciences.</p>
+                                </div>
+                            </article>
+                            <article class="project-funded-item">
+                                <h3 class="project-title">No-Code AI-based Personalized Healthcare Service Framework</h3>
+                                <div class="project-organization">Gachon University</div>
+                                <div class="project-description">
+                                    <p>Code-BERT agent translating natural language to SQL and analysis pipelines. Presented at KDBC 2023.</p>
+                                </div>
+                            </article>
+                            <article class="project-funded-item">
+                                <h3 class="project-title">Auto-Expanding Knowledge Graph-based Conversational AI</h3>
+                                <div class="project-organization">NRF</div>
+                                <div class="project-description">
+                                    <p>NLP concept extraction with PolarisX knowledge graphs. Published in Journal of KIISE.</p>
+                                </div>
+                            </article>
+                            <article class="project-funded-item">
+                                <h3 class="project-title">Advanced Conversational AI Platform based on Continuous Learning</h3>
+                                <div class="project-organization">NRF</div>
+                            </article>
+                            <article class="project-funded-item">
+                                <h3 class="project-title">Personalized AI Platform based on Federated Continuous Learning</h3>
+                                <div class="project-organization">Gachon University</div>
+                                <div class="project-description">
+                                    <p>Federated continuous learning for secure end-device knowledge sharing across conversational AI platforms.</p>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </section>
