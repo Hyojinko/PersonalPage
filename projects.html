@@ -177,12 +177,12 @@
                             </div>
                             <p class="project-role">Lead Researcher — Stent Registration &amp; Segmentation Pipeline</p>
                             <p class="project-summary">
-                                Deep learning pipeline for stent and catheter segmentation in invasive coronary angiography, supporting post-PCI quantitative coronary analysis (QCA) and stent-vessel registration across fluoroscopy and angiography modalities.
+                                Deep learning pipeline for stent and catheter segmentation in invasive coronary angiography, supporting post-PCI QCA and stent-vessel registration. Separate models handle fluoroscopy (catheter body &amp; tip) and angiography (catheter body/tip + stent) using U-Net++, FPN, and Segformer with EfficientNet-B7 encoders. Stent-vessel registration uses the catheter tip as a spatial reference via ICP, with auxiliary midpoint-to-centerline alignment for robustness against tip prediction errors.
                             </p>
                             <div class="project-highlights">
                                 <div class="project-highlight">
                                     <h4>Problem</h4>
-                                    <p>Single models with different loss functions show distinct failure modes — disconnected vessels, spurious branches, boundary errors — making naive ensembling unreliable.</p>
+                                    <p>Single models with different loss functions show distinct failure modes — disconnected vessels, spurious branches, boundary errors — making naive ensembling unreliable for post-PCI QCA.</p>
                                 </div>
                                 <div class="project-highlight">
                                     <h4>Approach</h4>
@@ -194,13 +194,64 @@
                                 </div>
                                 <div class="project-highlight">
                                     <h4>Results</h4>
-                                    <p>Up to 5.04% improvement over weakest baseline (avg. 3.68%). Evaluated on 942 internal + 358 external PCI projections with five-fold cross-validation.</p>
+                                    <p>Up to 5.04% DSC improvement over weakest baseline (avg. 3.68%). Evaluated on 942 internal + 358 external PCI projections with five-fold cross-validation.</p>
                                 </div>
                             </div>
                             <div class="project-publication">
                                 <strong>Publication:</strong>
                                 <a href="https://cinc2026.org/" target="_blank" rel="noopener noreferrer">Uncertainty-Aware Meta-Learning for Robust Stent Segmentation via Selective Ensemble</a>
                                 — Computing in Cardiology (CinC) 2026
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- ────────────────── FEATURED: MDCKE ────────────────── -->
+                    <div class="portfolio-featured" style="margin-top:1rem;">
+                        <article class="project-card project-card--featured">
+                            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.85rem;">
+                                <span class="project-badge">Master's Thesis</span>
+                                <span class="project-status" style="background:rgba(56,125,201,0.18);border:1px solid rgba(56,125,201,0.4);color:#8ab8e8;">Published</span>
+                            </div>
+                            <h3 class="project-title">MDCKE: Multimodal Deep-Context Knowledge Extractor that Integrates Contextual Information</h3>
+                            <div class="project-meta-row">
+                                <span class="project-organization">School of Computing, Gachon University</span>
+                                <span class="project-period">2023 – 2025</span>
+                            </div>
+                            <div class="project-meta">
+                                <span class="project-tag">Multimodal NER</span>
+                                <span class="project-tag">Relation Extraction</span>
+                                <span class="project-tag">Knowledge Graph</span>
+                                <span class="project-tag">Image Captioning</span>
+                                <span class="project-tag">BERT</span>
+                                <span class="project-tag">NLP</span>
+                            </div>
+                            <p class="project-role">First Author — Full pipeline design, implementation, and evaluation</p>
+                            <p class="project-summary">
+                                MDCKE is an information extraction framework for constructing multimodal knowledge graphs that reflect deeper contextual understanding. It generates hierarchical multi-scale image representations (global + local) and captions via an Image Transformer, then fuses them with text using a dynamic-gate visual prefix that injects image features into every BERT self-attention layer. A CRF-based classifier jointly performs Named Entity Recognition (NER) and Relation Extraction (RE) to output structured entity-relation triples.
+                            </p>
+                            <div class="project-highlights">
+                                <div class="project-highlight">
+                                    <h4>Key Idea</h4>
+                                    <p>Captions bridge the modality gap: global and local image captions are constituency-parsed and spliced with text, supplying semantic context that pure visual features miss — especially under low-resource conditions.</p>
+                                </div>
+                                <div class="project-highlight">
+                                    <h4>Architecture</h4>
+                                    <ul>
+                                        <li>ResNet-101 + FPN pyramid for multi-scale visual features</li>
+                                        <li>Image Transformer captioning (global &amp; local crops)</li>
+                                        <li>Dynamic-gate visual prefix fused into each BERT layer</li>
+                                        <li>CRF head for joint NER &amp; RE</li>
+                                    </ul>
+                                </div>
+                                <div class="project-highlight">
+                                    <h4>Results</h4>
+                                    <p>Twitter2015 NER: F1 82.44% (+5.83% over SOTA). MNRE RE: F1 88.30% (+26.26% over SOTA). Maintains consistent gains in 10–50% low-resource settings where prior models degrade sharply.</p>
+                                </div>
+                            </div>
+                            <div class="project-publication">
+                                <strong>Publication:</strong>
+                                <a href="https://doi.org/10.1016/j.aej.2025.02.079" target="_blank" rel="noopener noreferrer">MDCKE: Multimodal Deep-Context Knowledge Extractor that Integrates Contextual Information</a>
+                                — <em>Alexandria Engineering Journal</em>, Elsevier, 2025
                             </div>
                         </article>
                     </div>
@@ -226,15 +277,15 @@
                                 <span class="project-tag">CDSS</span>
                             </div>
                             <p class="project-description" style="margin-top:0.85rem;">
-                                End-to-end CDSS pipeline that generates structured clinical reports directly from coronary angiography images. The system combines LoRA fine-tuning of a vision-language model with retrieval-augmented generation (RAG) over a vector database of historical reports and FFR tables, coordinated through a LangGraph-based multi-agent system. Multi-frame input and a TSAU-based temporal attention module support multi-view vessel analysis.
+                                End-to-end CDSS pipeline generating structured clinical reports from coronary angiography. A two-stage LoRA fine-tuning pipeline first personalizes the VLM's reporting style, then RAG retrieves semantically similar cases from a vector DB built on DCM images, FFR tables, and historical reports. A LangGraph-based parallelized multi-agent system handles vessel classification, finding extraction, and report assembly. Multi-frame input with a TSAU-based temporal attention classifier enables multi-view vessel analysis and vessel-type–conditioned report generation.
                             </p>
                             <div class="project-timeline">
                                 <span class="project-timeline-item project-timeline-item--done">Data Pipeline</span>
-                                <span class="project-timeline-item project-timeline-item--done">LoRA Fine-tuning</span>
-                                <span class="project-timeline-item project-timeline-item--done">RAG Integration</span>
+                                <span class="project-timeline-item project-timeline-item--done">2-Stage LoRA</span>
+                                <span class="project-timeline-item project-timeline-item--done">RAG + VectorDB</span>
                                 <span class="project-timeline-item project-timeline-item--done">LangGraph MAS</span>
-                                <span class="project-timeline-item project-timeline-item--done">Multi-frame Input</span>
-                                <span class="project-timeline-item project-timeline-item--done">TSAU Classifier</span>
+                                <span class="project-timeline-item project-timeline-item--done">Multi-frame TSAU</span>
+                                <span class="project-timeline-item project-timeline-item--done">Multi-task Classifier</span>
                                 <span class="project-timeline-item">Multi-view Training</span>
                             </div>
                         </article>
@@ -249,11 +300,12 @@
                                 <h3 class="project-title">IVUS Vessel Tracking</h3>
                                 <div class="project-meta">
                                     <span class="project-tag">IVUS</span>
-                                    <span class="project-tag">Vessel Tracking</span>
+                                    <span class="project-tag">SAM2</span>
                                     <span class="project-tag">Noisy Labels</span>
+                                    <span class="project-tag">QCA</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Automated vessel boundary tracking across intravascular ultrasound (IVUS) pullback sequences. Builds on deep learning segmentation trained with noisy labels, extending it to temporally consistent lumen and media tracking for quantitative plaque analysis.</p>
+                                    <p>Lumen and vessel boundary segmentation in IVUS pullback sequences using DeepLabV3+ with EfficientNet-B4. A noisy-label robustness study evaluates Type 1/2/3 radial perturbations (R0–R25) with self-training via noisy-student and multi-frame quality filtering (Dice/Lumen: 0.9415 on 100% GT). Extends to full-pullback tracking via SAM2 with predicted masks as prompts, feeding into QCA-IVUS lumen matching and diameter graph generation.</p>
                                 </div>
                             </article>
 
@@ -269,7 +321,7 @@
                                     <span class="project-tag">QCA</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Geometric centerline extraction from vascular segmentation masks via slope-based region decomposition and iterative perpendicular-normal refinement. Produces accurate vessel centerlines for quantitative coronary analysis (QCA) and diameter measurement.</p>
+                                    <p>Geometric centerline extraction from vascular segmentation masks. A skeletonized centerline's average slope segments the mask into entrance/exit regions; perpendicular normals are drawn at 3 px intervals, and each normal's contour intersections are used to shift the centerline point to the true vessel midline. The refined centerline feeds directly into QCA diameter measurement and stent-vessel registration.</p>
                                 </div>
                             </article>
 
