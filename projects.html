@@ -6,125 +6,6 @@
     <title>Projects - Hyojin Ko</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* ── Status badges ── */
-        .project-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            padding: 0.2rem 0.55rem;
-            border-radius: 20px;
-            margin-bottom: 0.75rem;
-        }
-        .project-status--active {
-            background: rgba(80, 180, 110, 0.18);
-            border: 1px solid rgba(80, 180, 110, 0.4);
-            color: #7de0a0;
-        }
-        .project-status--active::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #7de0a0;
-            animation: pulse-dot 1.8s ease-in-out infinite;
-        }
-        .project-status--planned {
-            background: rgba(107, 78, 113, 0.2);
-            border: 1px solid rgba(107, 78, 113, 0.4);
-            color: #c9a8d4;
-        }
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        /* ── Secondary featured card ── */
-        .project-card--secondary {
-            padding: 1.6rem;
-            background: rgba(255, 255, 255, 0.045);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-        .project-card--secondary .project-title {
-            font-size: 1.22rem;
-        }
-
-        /* ── Progress timeline strip ── */
-        .project-timeline {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.9rem;
-        }
-        .project-timeline-item {
-            font-size: 0.78rem;
-            padding: 0.18rem 0.6rem;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-            opacity: 0.82;
-        }
-        .project-timeline-item--done {
-            background: rgba(80, 180, 110, 0.1);
-            border-color: rgba(80, 180, 110, 0.25);
-        }
-
-        /* ── Funded research: cleaner list ── */
-        .project-funded-item-v2 {
-            padding: 1rem 1.2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-        }
-        .project-funded-item-v2 .funded-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 0.4rem;
-        }
-        .project-funded-item-v2 .funded-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-color);
-            line-height: 1.45;
-        }
-        .project-funded-item-v2 .funded-org {
-            font-size: 0.82rem;
-            color: var(--text-color);
-            opacity: 0.65;
-            white-space: nowrap;
-            padding-top: 0.15rem;
-        }
-        .project-funded-item-v2 .funded-desc {
-            font-size: 0.9rem;
-            line-height: 1.65;
-            color: var(--text-color);
-            opacity: 0.82;
-        }
-
-        /* ── Section divider ── */
-        .project-section-divider {
-            border: none;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            margin: 2rem 0;
-        }
-
-        /* ── Card with period ── */
-        .project-card-period {
-            font-size: 0.78rem;
-            color: var(--text-color);
-            opacity: 0.55;
-            margin-bottom: 0.6rem;
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -159,7 +40,7 @@
                     <!-- ────────────────── FEATURED ────────────────── -->
                     <div class="portfolio-featured">
                         <article class="project-card project-card--featured">
-                            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.85rem;">
+                            <div class="project-badge-row">
                                 <span class="project-badge">Featured</span>
                                 <span class="project-status project-status--active">Active</span>
                             </div>
@@ -206,11 +87,11 @@
                     </div>
 
                     <!-- ────────────────── FEATURED: MDCKE ────────────────── -->
-                    <div class="portfolio-featured" style="margin-top:1rem;">
+                    <div class="portfolio-featured">
                         <article class="project-card project-card--featured">
-                            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.85rem;">
+                            <div class="project-badge-row">
                                 <span class="project-badge">Master's Thesis</span>
-                                <span class="project-status" style="background:rgba(56,125,201,0.18);border:1px solid rgba(56,125,201,0.4);color:#8ab8e8;">Published</span>
+                                <span class="project-status project-status--published">Published</span>
                             </div>
                             <h3 class="project-title">MDCKE: Multimodal Deep-Context Knowledge Extractor that Integrates Contextual Information</h3>
                             <div class="project-meta-row">
@@ -262,10 +143,10 @@
                         <p class="project-subsection-desc">Asan Institute of Life Sciences / Asan Medical Center</p>
 
                         <!-- Medical Report — secondary featured -->
-                        <article class="project-card project-card--secondary" style="margin-bottom:1rem;">
-                            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.7rem;">
+                        <article class="project-card project-card--secondary">
+                            <div class="project-badge-row">
                                 <span class="project-status project-status--active">Active</span>
-                                <span class="project-card-period" style="margin-bottom:0;">Mar 2025 – Present</span>
+                                <span class="project-card-period">Mar 2025 – Present</span>
                             </div>
                             <h3 class="project-title">Automated Medical Report Generation for Coronary Angiography</h3>
                             <div class="project-meta" style="margin-top:0.55rem;">
@@ -293,9 +174,9 @@
                         <!-- 2-column grid for remaining projects -->
                         <div class="project-grid">
                             <article class="project-card">
-                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                <div class="project-card-header">
                                     <span class="project-status project-status--active">Active</span>
-                                    <span class="project-card-period" style="margin-bottom:0;">2025 – Present</span>
+                                    <span class="project-card-period">2025 – Present</span>
                                 </div>
                                 <h3 class="project-title">IVUS Vessel Tracking</h3>
                                 <div class="project-meta">
@@ -310,9 +191,9 @@
                             </article>
 
                             <article class="project-card">
-                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                <div class="project-card-header">
                                     <span class="project-status project-status--active">Active</span>
-                                    <span class="project-card-period" style="margin-bottom:0;">Jan 2026 – Present</span>
+                                    <span class="project-card-period">Jan 2026 – Present</span>
                                 </div>
                                 <h3 class="project-title">Coronary Centerline Extraction</h3>
                                 <div class="project-meta">
@@ -326,9 +207,9 @@
                             </article>
 
                             <article class="project-card">
-                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                <div class="project-card-header">
                                     <span class="project-status project-status--active">Active</span>
-                                    <span class="project-card-period" style="margin-bottom:0;">2025 – Present</span>
+                                    <span class="project-card-period">2025 – Present</span>
                                 </div>
                                 <h3 class="project-title">Hydronephrosis Segmentation</h3>
                                 <div class="project-meta">
@@ -342,9 +223,9 @@
                             </article>
 
                             <article class="project-card">
-                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                <div class="project-card-header">
                                     <span class="project-status project-status--planned">Planned</span>
-                                    <span class="project-card-period" style="margin-bottom:0;">2025</span>
+                                    <span class="project-card-period">2025</span>
                                 </div>
                                 <h3 class="project-title">IMR Reporting for Tinnitus</h3>
                                 <div class="project-meta">
@@ -358,9 +239,9 @@
                             </article>
 
                             <article class="project-card">
-                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                <div class="project-card-header">
                                     <span class="project-status project-status--planned">Planned</span>
-                                    <span class="project-card-period" style="margin-bottom:0;">2025</span>
+                                    <span class="project-card-period">2025</span>
                                 </div>
                                 <h3 class="project-title">VR Applications in Medicine</h3>
                                 <div class="project-meta">
@@ -374,9 +255,9 @@
                             </article>
 
                             <article class="project-card">
-                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                <div class="project-card-header">
                                     <span class="project-status project-status--planned">Planned</span>
-                                    <span class="project-card-period" style="margin-bottom:0;">2025</span>
+                                    <span class="project-card-period">2025</span>
                                 </div>
                                 <h3 class="project-title">Operating Room Data Automation</h3>
                                 <div class="project-meta">
