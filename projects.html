@@ -6,6 +6,125 @@
     <title>Projects - Hyojin Ko</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ── Status badges ── */
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.55rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+        .project-status--active {
+            background: rgba(80, 180, 110, 0.18);
+            border: 1px solid rgba(80, 180, 110, 0.4);
+            color: #7de0a0;
+        }
+        .project-status--active::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #7de0a0;
+            animation: pulse-dot 1.8s ease-in-out infinite;
+        }
+        .project-status--planned {
+            background: rgba(107, 78, 113, 0.2);
+            border: 1px solid rgba(107, 78, 113, 0.4);
+            color: #c9a8d4;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* ── Secondary featured card ── */
+        .project-card--secondary {
+            padding: 1.6rem;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .project-card--secondary .project-title {
+            font-size: 1.22rem;
+        }
+
+        /* ── Progress timeline strip ── */
+        .project-timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.9rem;
+        }
+        .project-timeline-item {
+            font-size: 0.78rem;
+            padding: 0.18rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            opacity: 0.82;
+        }
+        .project-timeline-item--done {
+            background: rgba(80, 180, 110, 0.1);
+            border-color: rgba(80, 180, 110, 0.25);
+        }
+
+        /* ── Funded research: cleaner list ── */
+        .project-funded-item-v2 {
+            padding: 1rem 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+        }
+        .project-funded-item-v2 .funded-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.4rem;
+        }
+        .project-funded-item-v2 .funded-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            line-height: 1.45;
+        }
+        .project-funded-item-v2 .funded-org {
+            font-size: 0.82rem;
+            color: var(--text-color);
+            opacity: 0.65;
+            white-space: nowrap;
+            padding-top: 0.15rem;
+        }
+        .project-funded-item-v2 .funded-desc {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: var(--text-color);
+            opacity: 0.82;
+        }
+
+        /* ── Section divider ── */
+        .project-section-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            margin: 2rem 0;
+        }
+
+        /* ── Card with period ── */
+        .project-card-period {
+            font-size: 0.78rem;
+            color: var(--text-color);
+            opacity: 0.55;
+            margin-bottom: 0.6rem;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -37,9 +156,13 @@
                 <section class="content-section">
                     <h2 class="section-title">Projects</h2>
 
+                    <!-- ────────────────── FEATURED ────────────────── -->
                     <div class="portfolio-featured">
                         <article class="project-card project-card--featured">
-                            <span class="project-badge">Featured</span>
+                            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.85rem;">
+                                <span class="project-badge">Featured</span>
+                                <span class="project-status project-status--active">Active</span>
+                            </div>
                             <h3 class="project-title">Uncertainty-Aware Meta-Learning for Robust Stent Segmentation via Selective Ensemble</h3>
                             <div class="project-meta-row">
                                 <span class="project-organization">Asan Institute of Life Sciences / Asan Medical Center</span>
@@ -54,12 +177,12 @@
                             </div>
                             <p class="project-role">Lead Researcher — Stent Registration &amp; Segmentation Pipeline</p>
                             <p class="project-summary">
-                                Deep learning pipeline for stent and catheter segmentation in invasive coronary angiography, supporting post-PCI QCA and stent-vessel registration across fluoroscopy and angiography.
+                                Deep learning pipeline for stent and catheter segmentation in invasive coronary angiography, supporting post-PCI quantitative coronary analysis (QCA) and stent-vessel registration across fluoroscopy and angiography modalities.
                             </p>
                             <div class="project-highlights">
                                 <div class="project-highlight">
                                     <h4>Problem</h4>
-                                    <p>Single models with different loss functions show distinct failure modes—disconnected vessels, spurious branches, boundary errors—making naive ensembling unreliable.</p>
+                                    <p>Single models with different loss functions show distinct failure modes — disconnected vessels, spurious branches, boundary errors — making naive ensembling unreliable.</p>
                                 </div>
                                 <div class="project-highlight">
                                     <h4>Approach</h4>
@@ -71,7 +194,7 @@
                                 </div>
                                 <div class="project-highlight">
                                     <h4>Results</h4>
-                                    <p>Up to 5.04% improvement over weakest baseline (avg. 3.68%). Evaluated on 942 internal + 358 external PCI projections with five-fold CV.</p>
+                                    <p>Up to 5.04% improvement over weakest baseline (avg. 3.68%). Evaluated on 942 internal + 358 external PCI projections with five-fold cross-validation.</p>
                                 </div>
                             </div>
                             <div class="project-publication">
@@ -82,123 +205,190 @@
                         </article>
                     </div>
 
+                    <!-- ────────────────── CURRENT RESEARCH ────────────────── -->
                     <div class="project-subsection">
                         <h3 class="project-subsection-title">Current Research</h3>
                         <p class="project-subsection-desc">Asan Institute of Life Sciences / Asan Medical Center</p>
+
+                        <!-- Medical Report — secondary featured -->
+                        <article class="project-card project-card--secondary" style="margin-bottom:1rem;">
+                            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.7rem;">
+                                <span class="project-status project-status--active">Active</span>
+                                <span class="project-card-period" style="margin-bottom:0;">Mar 2025 – Present</span>
+                            </div>
+                            <h3 class="project-title">Automated Medical Report Generation for Coronary Angiography</h3>
+                            <div class="project-meta" style="margin-top:0.55rem;">
+                                <span class="project-tag">MLLM</span>
+                                <span class="project-tag">LoRA Fine-tuning</span>
+                                <span class="project-tag">RAG</span>
+                                <span class="project-tag">LangGraph</span>
+                                <span class="project-tag">Multi-frame</span>
+                                <span class="project-tag">CDSS</span>
+                            </div>
+                            <p class="project-description" style="margin-top:0.85rem;">
+                                End-to-end CDSS pipeline that generates structured clinical reports directly from coronary angiography images. The system combines LoRA fine-tuning of a vision-language model with retrieval-augmented generation (RAG) over a vector database of historical reports and FFR tables, coordinated through a LangGraph-based multi-agent system. Multi-frame input and a TSAU-based temporal attention module support multi-view vessel analysis.
+                            </p>
+                            <div class="project-timeline">
+                                <span class="project-timeline-item project-timeline-item--done">Data Pipeline</span>
+                                <span class="project-timeline-item project-timeline-item--done">LoRA Fine-tuning</span>
+                                <span class="project-timeline-item project-timeline-item--done">RAG Integration</span>
+                                <span class="project-timeline-item project-timeline-item--done">LangGraph MAS</span>
+                                <span class="project-timeline-item project-timeline-item--done">Multi-frame Input</span>
+                                <span class="project-timeline-item project-timeline-item--done">TSAU Classifier</span>
+                                <span class="project-timeline-item">Multi-view Training</span>
+                            </div>
+                        </article>
+
+                        <!-- 2-column grid for remaining projects -->
                         <div class="project-grid">
                             <article class="project-card">
-                                <h3 class="project-title">Automated Medical Report Generation</h3>
-                                <div class="project-meta">
-                                    <span class="project-tag">MLLM</span>
-                                    <span class="project-tag">RAG</span>
-                                    <span class="project-tag">LangGraph</span>
-                                    <span class="project-tag">CDSS</span>
+                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <span class="project-status project-status--active">Active</span>
+                                    <span class="project-card-period" style="margin-bottom:0;">2025 – Present</span>
                                 </div>
-                                <div class="project-description">
-                                    <p>End-to-end CDSS pipeline generating structured reports from coronary angiography. LoRA fine-tuning, RAG with vector DBs, and LangGraph multi-agent system with multi-frame input.</p>
-                                </div>
-                            </article>
-                            <article class="project-card">
                                 <h3 class="project-title">IVUS Vessel Tracking</h3>
                                 <div class="project-meta">
                                     <span class="project-tag">IVUS</span>
                                     <span class="project-tag">Vessel Tracking</span>
+                                    <span class="project-tag">Noisy Labels</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Automated vessel tracking for intravascular ultrasound, building on deep learning IVUS segmentation with noisy labels.</p>
+                                    <p>Automated vessel boundary tracking across intravascular ultrasound (IVUS) pullback sequences. Builds on deep learning segmentation trained with noisy labels, extending it to temporally consistent lumen and media tracking for quantitative plaque analysis.</p>
                                 </div>
                             </article>
+
                             <article class="project-card">
-                                <h3 class="project-title">Centerline Extraction</h3>
+                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <span class="project-status project-status--active">Active</span>
+                                    <span class="project-card-period" style="margin-bottom:0;">Jan 2026 – Present</span>
+                                </div>
+                                <h3 class="project-title">Coronary Centerline Extraction</h3>
                                 <div class="project-meta">
                                     <span class="project-tag">Centerline</span>
                                     <span class="project-tag">Morphology</span>
+                                    <span class="project-tag">QCA</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Geometric centerline extraction from vascular masks via slope segmentation and perpendicular normal refinement for QCA analysis.</p>
+                                    <p>Geometric centerline extraction from vascular segmentation masks via slope-based region decomposition and iterative perpendicular-normal refinement. Produces accurate vessel centerlines for quantitative coronary analysis (QCA) and diameter measurement.</p>
                                 </div>
                             </article>
+
                             <article class="project-card">
+                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <span class="project-status project-status--active">Active</span>
+                                    <span class="project-card-period" style="margin-bottom:0;">2025 – Present</span>
+                                </div>
                                 <h3 class="project-title">Hydronephrosis Segmentation</h3>
                                 <div class="project-meta">
                                     <span class="project-tag">Segmentation</span>
                                     <span class="project-tag">Ultrasound</span>
+                                    <span class="project-tag">Pediatric Urology</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Deep learning-based hydronephrosis segmentation from ultrasound images with literature review and clinical validation planning.</p>
+                                    <p>Deep learning segmentation of hydronephrosis from pediatric renal ultrasound images, in collaboration with the urology department. Focuses on grading consistency and clinical validation.</p>
                                 </div>
                             </article>
+
                             <article class="project-card">
+                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <span class="project-status project-status--planned">Planned</span>
+                                    <span class="project-card-period" style="margin-bottom:0;">2025</span>
+                                </div>
                                 <h3 class="project-title">IMR Reporting for Tinnitus</h3>
                                 <div class="project-meta">
                                     <span class="project-tag">Medical Reporting</span>
                                     <span class="project-tag">NLP</span>
+                                    <span class="project-tag">Template Generation</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Structured IMR report generation with department-specific templates and patent drafting for automated reporting workflows.</p>
+                                    <p>Structured IMR (Insurance Medical Review) report generation for tinnitus cases using department-specific templates. Includes patent drafting for the automated reporting workflow.</p>
                                 </div>
                             </article>
+
                             <article class="project-card">
-                                <h3 class="project-title">VR in Medicine</h3>
+                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <span class="project-status project-status--planned">Planned</span>
+                                    <span class="project-card-period" style="margin-bottom:0;">2025</span>
+                                </div>
+                                <h3 class="project-title">VR Applications in Medicine</h3>
                                 <div class="project-meta">
                                     <span class="project-tag">VR</span>
                                     <span class="project-tag">Cardiology</span>
                                     <span class="project-tag">Orthopedics</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Survey of VR applications in cardiology and orthopedics for immersive medical visualization.</p>
+                                    <p>Survey and prototyping of virtual reality applications in cardiology and orthopedics for immersive anatomical visualization, surgical planning, and medical education.</p>
                                 </div>
                             </article>
+
                             <article class="project-card">
-                                <h3 class="project-title">Operating Room Automation</h3>
+                                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <span class="project-status project-status--planned">Planned</span>
+                                    <span class="project-card-period" style="margin-bottom:0;">2025</span>
+                                </div>
+                                <h3 class="project-title">Operating Room Data Automation</h3>
                                 <div class="project-meta">
                                     <span class="project-tag">Automation</span>
                                     <span class="project-tag">Data Pipeline</span>
+                                    <span class="project-tag">Surgical Workflow</span>
                                 </div>
                                 <div class="project-description">
-                                    <p>Clinical data collection and preprocessing pipelines for AI-driven surgical workflow support.</p>
+                                    <p>Clinical data collection and preprocessing pipelines for structured OR records, enabling downstream AI applications in surgical workflow analysis and outcome prediction.</p>
                                 </div>
                             </article>
                         </div>
                     </div>
 
+                    <hr class="project-section-divider">
+
+                    <!-- ────────────────── FUNDED RESEARCH ────────────────── -->
                     <div class="project-subsection">
                         <h3 class="project-subsection-title">Funded Research</h3>
-                        <div class="project-funded-list">
-                            <article class="project-funded-item">
-                                <h3 class="project-title">Deep Learning-based CDSS for Postoperative Nursing Surveillance using EMR Data</h3>
-                                <div class="project-organization">MSIT</div>
-                                <div class="project-description">
-                                    <p>Multimodal EMR analysis with explainable AI for nursing surveillance. Published systematic review in Applied Sciences.</p>
+                        <div class="project-funded-list" style="gap:0.7rem;">
+
+                            <article class="project-funded-item-v2">
+                                <div class="funded-header">
+                                    <span class="funded-title">Deep Learning-based CDSS for Postoperative Nursing Surveillance using EMR Data</span>
+                                    <span class="funded-org">MSIT</span>
                                 </div>
+                                <p class="funded-desc">Multimodal EMR analysis with explainable AI for automated postoperative nursing surveillance. Contributed systematic literature review, published in <em>Applied Sciences</em>.</p>
                             </article>
-                            <article class="project-funded-item">
-                                <h3 class="project-title">No-Code AI-based Personalized Healthcare Service Framework</h3>
-                                <div class="project-organization">Gachon University</div>
-                                <div class="project-description">
-                                    <p>Code-BERT agent translating natural language to SQL and analysis pipelines. Presented at KDBC 2023.</p>
+
+                            <article class="project-funded-item-v2">
+                                <div class="funded-header">
+                                    <span class="funded-title">No-Code AI-based Personalized Healthcare Service Framework</span>
+                                    <span class="funded-org">Gachon University</span>
                                 </div>
+                                <p class="funded-desc">Code-BERT agent that translates natural language queries into SQL and analysis pipelines, enabling non-experts to explore clinical datasets. Presented at KDBC 2023.</p>
                             </article>
-                            <article class="project-funded-item">
-                                <h3 class="project-title">Auto-Expanding Knowledge Graph-based Conversational AI</h3>
-                                <div class="project-organization">NRF</div>
-                                <div class="project-description">
-                                    <p>NLP concept extraction with PolarisX knowledge graphs. Published in Journal of KIISE.</p>
+
+                            <article class="project-funded-item-v2">
+                                <div class="funded-header">
+                                    <span class="funded-title">Auto-Expanding Knowledge Graph-based Conversational AI</span>
+                                    <span class="funded-org">NRF</span>
                                 </div>
+                                <p class="funded-desc">NLP-driven concept extraction feeding into PolarisX knowledge graphs for continually expanding conversational AI. Published in the <em>Journal of KIISE</em>.</p>
                             </article>
-                            <article class="project-funded-item">
-                                <h3 class="project-title">Advanced Conversational AI Platform based on Continuous Learning</h3>
-                                <div class="project-organization">NRF</div>
-                            </article>
-                            <article class="project-funded-item">
-                                <h3 class="project-title">Personalized AI Platform based on Federated Continuous Learning</h3>
-                                <div class="project-organization">Gachon University</div>
-                                <div class="project-description">
-                                    <p>Federated continuous learning for secure end-device knowledge sharing across conversational AI platforms.</p>
+
+                            <article class="project-funded-item-v2">
+                                <div class="funded-header">
+                                    <span class="funded-title">Advanced Conversational AI Platform based on Continuous Learning</span>
+                                    <span class="funded-org">NRF</span>
                                 </div>
+                                <p class="funded-desc">Research on catastrophic-forgetting mitigation and continual learning strategies for dialogue systems under distribution shift.</p>
                             </article>
+
+                            <article class="project-funded-item-v2">
+                                <div class="funded-header">
+                                    <span class="funded-title">Personalized AI Platform based on Federated Continuous Learning</span>
+                                    <span class="funded-org">Gachon University</span>
+                                </div>
+                                <p class="funded-desc">Federated continual learning framework for privacy-preserving knowledge sharing across distributed edge devices in conversational AI services.</p>
+                            </article>
+
                         </div>
                     </div>
+
                 </section>
             </div>
         </div>
